@@ -2,13 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: .3s;
+
 }
 :root{
     --dawg-orange: #FF4D00;
     --dawg-white: #FFFBF8;
     --dawg-active: #FFCCB6;
     --dawg-bg-gradient: linear-gradient(180deg, #FFE8D0 0%, #FFF7EF 100%);
+    --dawg-dark-orange: #C23B00;
+
 }
 .fuzzy{
     font-family: Fuzzy Bubbles;
@@ -27,6 +29,7 @@
 body{
     width: 100vw;
     overflow-x: hidden;
+    transition: .3s;    
 }
 .container{
     max-width: 1280px;
@@ -37,6 +40,7 @@ body{
 .cover{
     width: 100%;
     height: 647px;
+    overflow: hidden;
 }
 .cover-bg{
     background: var(--dawg-bg-gradient);
@@ -84,6 +88,7 @@ body{
     background-image: url('./images/x.svg');
     cursor: pointer;
     border-radius: 4px;
+    transition: .3s; 
 }
 .dc-link{
     width: 32px;
@@ -92,6 +97,7 @@ body{
     background-image: url('./images/discord.svg');
     cursor: pointer;
     border-radius: 4px;
+    transition: .3s; 
 }
 .dc-link:hover, .x-link:hover{
     background-color: var(--dawg-active);
@@ -107,6 +113,8 @@ body{
     height: 100%;
     padding: 0px 24px;
     color: var(--dawg-orange);
+    display: flex;
+    flex-direction: row;
 }
 .hero-titles{
     display: flex;
@@ -144,8 +152,19 @@ body{
     width: fit-content;
     padding: 24px;
     background-color: var(--dawg-orange);
-    color: var(--dawg-white);
     border-radius: 16px;
+    cursor: pointer;
+    outline: 3px solid transparent;
+    transition: 0.3s ease;
+    outline-offset: -3px;
+}
+.action-text{
+    color: var(--dawg-white);
+}
+.hero-action:hover{
+    background-color: var(--dawg-dark-orange);
+    outline-color: var(--dawg-orange);
+    
 }
 .dc-icon{
     background: url('./images/discord-white.svg');
@@ -156,12 +175,29 @@ body{
 }
 .dawg{
     pointer-events: none;
-    position: absolute;
     width: 690px;
-    height: 1054px;
-    top: 0;
-    right: 0;
+    height: 647px;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('./images/dawg.svg');
+    transform: translate(0, 35%);
+    
 }
+.scroll-item {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: opacity 0.5s, transform 0.5s;
+    text-decoration: underline;
+  }
+  
+  .scroll-item.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scroll-item.exit {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
