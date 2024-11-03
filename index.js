@@ -51,3 +51,65 @@ heroAction.addEventListener("mouseleave", function(e){
         }
     );
 })
+const carousel = document.querySelector('.meet-cards-container');
+
+let isDragging = false;
+let startPosition = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+const dragLimit = -carousel.clientWidth; // Limit to -600px to the right
+
+// Event listeners for mouse events
+carousel.addEventListener('mousedown', startDrag);
+carousel.addEventListener('mousemove', drag);
+carousel.addEventListener('mouseup', endDrag);
+carousel.addEventListener('mouseleave', endDrag);
+
+// Event listeners for touch events
+carousel.addEventListener('touchstart', startDrag);
+carousel.addEventListener('touchmove', drag);
+carousel.addEventListener('touchend', endDrag);
+
+// Start drag function
+function startDrag(e) {
+  isDragging = true;
+  startPosition = getPositionX(e);
+  carousel.style.transition = 'none'; // Remove transition for smooth dragging
+  carousel.style.cursor = 'grabbing';
+}
+
+// Drag function
+function drag(e) {
+  if (!isDragging) return;
+
+  const currentPosition = getPositionX(e);
+  let dragDistance = currentPosition - startPosition;
+  currentTranslate = prevTranslate + dragDistance;
+
+  // Enforce drag limits
+  if (currentTranslate > 0) {
+    currentTranslate = 0; // Prevent dragging beyond the left edge
+  } else if (currentTranslate < dragLimit) {
+    currentTranslate = dragLimit; // Prevent dragging beyond 600px to the right
+  }
+
+  carousel.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+// End drag function
+function endDrag() {
+  if (!isDragging) return;
+  isDragging = false;
+
+  // Set prevTranslate for the next drag
+  prevTranslate = currentTranslate;
+  
+  // Smooth transition when ending drag
+  carousel.style.transition = 'transform 0.3s ease';
+  carousel.style.cursor = 'grab';
+}
+
+// Helper function to get the position for both touch and mouse events
+function getPositionX(e) {
+  return e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+}

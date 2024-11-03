@@ -12,6 +12,7 @@
     --dawg-dark-orange: #C23B00;
     --dawg-light-bg: #FFE8D0;
     --dawg-gray-bg: #302E30;
+    --dawg-blue: #B7DEFF;
 }
 .fuzzy{
     font-family: Fuzzy Bubbles;
@@ -28,6 +29,9 @@
 }
 .f24px{
     font-size: 24px;
+}
+.f18px{
+    font-size: 18px;
 }
 .gaegu{
     font-family: Gaegu;
@@ -269,4 +273,55 @@ body{
     background-image: url('./images/meet.png');
     width: 1174px;
     height: 501px;
+}
+.meet-cards{
+    max-width: 1280px;
+    margin: 48px auto;
+}
+.meet-cards-container{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.dawg-card{
+    min-width: 425px;
+    height: 311px;
+    border-radius: 16px;
+    background-color: var(--dawg-blue);
+    transition: .3s;
+    outline:  3px solid transparent;
+    outline-offset: -3px;
+    cursor: grab;
+    user-select: none;
+}
+.dawg-card:hover{
+    transform: translateY(-10%);
+    outline: 3px solid var(--dawg-white);
+}
+.dawg-tag{
+    opacity: 70%;
+    letter-spacing: 3px;
+}
+
+.card-container{
+    padding-top: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dawg-pic{
+    width: 229px;
+    height: 196px;
+    flex-grow: 20;
+}
+.dawg-pic > div{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.dawg-pic1{
+    background-image: url('./images/gandawg.png');
 }
