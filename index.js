@@ -51,6 +51,7 @@ heroAction.addEventListener("mouseleave", function(e){
         }
     );
 })
+
 const carousel = document.querySelector('.meet-cards-container');
 
 let isDragging = false;
@@ -105,7 +106,6 @@ function endDrag() {
   prevTranslate = currentTranslate;
   
   // Smooth transition when ending drag
-  carousel.style.transition = 'transform 0.3s ease';
   carousel.style.cursor = 'grab';
 }
 
