@@ -94,7 +94,8 @@ function drag(e) {
     currentTranslate = dragLimit; // Prevent dragging beyond 600px to the right
   }
 
-  carousel.style.transform = `translateX(${currentTranslate}px)`;
+ carousel.style.transform = `translateX(${currentTranslate}px)`;
+
 }
 
 // End drag function

@@ -278,13 +278,15 @@ body{
     max-width: 1280px;
     margin: 48px auto;
 
+
 }
 .meet-cards-container{
     display: flex;
     flex-direction: row;
     gap: 24px;
     overscroll-behavior-inline: contain;
-    transition: .3s;
+    transform: translateX(0px);
+    transition: .6s;
 }
 .dawg-card{
     min-width: 425px;
@@ -303,6 +305,7 @@ body{
 .dawg-tag{
     opacity: 70%;
     letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .card-container{
@@ -413,5 +416,42 @@ body{
     transform: translateY(-8px);
     width: 100%;
     height: 1338px;
-    background: var(--dawg-orange);
+    padding-top: 48px;
+    background: url(./images/roadmap-bg.png) no-repeat;
+    background-size: contain;
+}
+.roadmap-title{
+    margin: auto;
+    width: 1280px;
+    padding: 0 24px;
+}
+.roadmap-list{
+    position: absolute;
+    left: 368px;
+    top: 230px;
+}
+.list-header{
+    display: flex;
+    padding-bottom: 16px;
+    gap: 16px;
+}
+.list-header > div{
+    color: var(--dawg-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.roadmap-number{
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--dawg-white);
+}
+.list-content{
+    padding-left: 64px;
+    width: 420px;
+    line-height: 140%;
+}
+li > span{
+    font-weight: 700;
 }
