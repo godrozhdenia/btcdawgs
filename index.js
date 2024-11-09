@@ -114,3 +114,22 @@ function endDrag() {
 function getPositionX(e) {
   return e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
 }
+var isExpanded = false;
+function expandAns(num){
+  if(isExpanded == false){
+    document.getElementById('answers'+num).style.display = "initial";
+    document.getElementById('answers'+num).style.animation = "opacityTr .5s linear forwards";
+    document.getElementById('arrow'+num).style.transform= "rotate(180deg)";
+    document.getElementById('border'+num).style.visibility= "hidden";
+    console.log(document.getElementById('answers'+num).style.visibility)
+    isExpanded = true;
+  }
+  else if(isExpanded == true){
+    document.getElementById('answers'+num).style.display= "none";
+    document.getElementById('arrow'+num).style.transform= "rotate(0deg)";
+    document.getElementById('answers'+num).style.animation = "none";
+    console.log(document.getElementById('answers'+num).style.visibility)
+    document.getElementById('border'+num).style.visibility= "visible";
+    isExpanded = false
+  }
+}

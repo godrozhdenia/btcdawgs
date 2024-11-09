@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    
 }
 :root{
     --dawg-orange: #FF4D00;
@@ -35,7 +35,8 @@
 }
 .gaegu{
     font-family: Gaegu;
-    font-weight: 400;
+    font-weight: 500;
+    font-smooth: auto;
 }
 body{
     width: 100vw;
@@ -307,7 +308,9 @@ body{
     letter-spacing: 3px;
     text-transform: uppercase;
 }
-
+.opacity70{
+    opacity: 70%;
+}
 .card-container{
     padding-top: 24px;
     height: 100%;
@@ -425,15 +428,11 @@ body{
     width: 1280px;
     padding: 0 24px;
 }
-.roadmap-list{
-    position: absolute;
-    left: 368px;
-    top: 230px;
-}
 .list-header{
     display: flex;
     padding-bottom: 16px;
     gap: 16px;
+    opacity: 100% !important;
 }
 .list-header > div{
     color: var(--dawg-orange);
@@ -447,11 +446,177 @@ body{
     border-radius: 8px;
     background: var(--dawg-white);
 }
+.listI1{
+    position: absolute;
+    left: 368px;
+    top: 230px;
+}
+.listI2{
+    position: absolute;
+    left: 1187px;
+    top: 454px;
+}
+.listI3{
+    position: absolute;
+    left: 459px;
+    top: 827px;
+}
 .list-content{
     padding-left: 64px;
-    width: 420px;
+    width: 480px;
     line-height: 140%;
 }
-li > span{
+.bold700{
     font-weight: 700;
+}
+.follow-us{
+    width: 584px;
+    height: 128px;
+    background: url('./images/follow-us-bg.png');
+    border-radius: 16px;
+    background-color: var(--dawg-active);
+    box-shadow: -10px -12px 15px 0px #FF733660, -12px -16px 17px 0px #FF733672, -20px -32px 27px 0px #FF733689, -12px -44px 24px 0px #FF7336BF, 20px 20px 20px 0px #B838007A,11px 11px 11px 0px #B8380066,12px 12px 12px 0px #B8380057,24px 24px 24px 0px #B83800;
+    margin: 55% auto;
+}
+.follow-us-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    color: var(--dawg-orange);
+    padding: 32px;
+}
+.follow-us-button{
+    border: 2px solid var(--dawg-orange);
+    border-radius: 16px;
+    width: 141px;
+    height: 57px;
+    cursor: pointer;
+    transition: .3s;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    height: 100%;
+    
+}
+.follow-us-button:hover{
+    box-shadow:  -3px 3px 10px #FF7336BF;
+}
+.x{
+    background-image: url('./images/x.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 32px;
+    width: 32px;
+}
+.button-container > div{
+    font-size: 20px;
+}
+.faq{
+    height: fit-content;
+    min-height: 480px;
+    background: var(--dawg-light-bg);
+    transform: translateY(-8px);
+}
+.faq-container{
+    width: 1232px;
+    height: 100%;
+    margin: auto;
+    padding: 48px 24px 0px 24px;
+}
+.faq-title{
+    color: var(--dawg-orange);
+}
+.faq-menu{
+    display: flex;
+}
+.sections{
+    width: Fixed (261px)px;
+    height: Hug (108px)px;
+    padding: 10px 16px 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0px;
+}
+.sections-item{
+    width: 229px;
+    height: 40pxpx;
+    padding: 8px;
+    gap: 0px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0px;
+    color: var(--dawg-orange);
+    cursor: pointer;
+}
+.sections-item > img{
+    width: 6px;
+    height: 10px;
+
+}
+.chosen{
+    background: #FF4D0033;
+}
+.questions{
+    width: Fill (955px)px;
+    height: Hug (216px)px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+.questions-item > img{
+    width: 16px;
+    height: 16px;
+}
+.questions-item{
+    width: 563px;
+    min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 25px;
+    color: var(--dawg-orange);
+
+    
+}
+.questions-item-title{
+    padding: 25px 0px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+.border-bottom{
+    height: 1px;
+    width: 100%;
+    border: 1px solid #FFD1BD;
+    border-radius: 100px;
+}
+@keyframes opacityTr{
+    0%{opacity: 0%;}
+    100%{opacity: 100%;}
+}
+#answers1, #answers2{
+    display: none;
+    transition: .5s;
+}
+#arrow1, #arrow2{
+    transition: .5s;
+}
+.footer{
+    background-color: var(--dawg-orange);
+    padding: 8px 16px;
+    color: var(--dawg-white);
+    transform: translateY(-8px);
+}
+a{
+    text-decoration: none;
 }
