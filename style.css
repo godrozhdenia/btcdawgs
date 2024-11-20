@@ -48,7 +48,7 @@ body{
     height: 200vh;
 }
 .cover{
-    width: 100%;
+    width: 100vw;
     height: 567px;
     overflow: hidden;
     max-width: 1280px;
@@ -232,6 +232,7 @@ body{
     color: var(--dawg-orange);
     height: 40px;
     white-space: nowrap;
+    max-width: 100vw;
 }
 .info-container {
     display: inline-flex;
@@ -417,11 +418,12 @@ body{
 }
 .roadmap{
     transform: translateY(-8px);
-    width: 100%;
+    min-width: 100vw;
     height: 1338px;
     padding-top: 48px;
     background: url(./images/roadmap-bg.png) no-repeat;
-    background-size: contain;
+    background-size: cover;
+    resize: both;
 }
 .roadmap-title{
     margin: auto;
@@ -448,18 +450,18 @@ body{
 }
 .listI1{
     position: absolute;
-    left: 368px;
-    top: 230px;
+    left: 18vw;
+    top: 12vw;
 }
 .listI2{
     position: absolute;
-    left: 1187px;
-    top: 454px;
+    left: 62vw;
+    top: 24vw;
 }
 .listI3{
     position: absolute;
-    left: 459px;
-    top: 827px;
+    left: 23vw;
+    top: 43vw;
 }
 .list-content{
     padding-left: 64px;
