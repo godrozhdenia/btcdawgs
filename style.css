@@ -662,6 +662,10 @@ a{
         line-height: 1;
         padding-top: 24px;
     }
+    .container{
+        width: 100vw;
+        overflow: hidden;
+    }
     .hero-paragraph{
         font-size: 24px;
         line-height: 1;
@@ -711,7 +715,36 @@ a{
     .meet-paragraph{
         font-size: 18px;
     }
-    .meet-cards-container > div{
+    .card-container{
         width: 187px;
+    }
+    .dawg-card{
+        min-width: 187px;
+        height: 254px;
+        border-radius: 16px;
+        transition: .3s;
+        outline:  3px solid transparent;
+        outline-offset: -3px;
+        cursor: grab;
+        user-select: none;
+        overflow: hidden;
+    }
+    .dawg-tag{
+        font-size: 16px;
+    }
+    .dawg-name{
+        font-size: 24px;
+    }
+    .dawg-pic{
+        width: 100%;
+        overflow: hidden;
+    }
+    .dawg-pic > div{
+        transform: translateX(25%);
+        background-size: contain;
+        background-position: bottom;
+    }
+    .meet-the-dawgs{
+        height: 100vh;
     }
 }
