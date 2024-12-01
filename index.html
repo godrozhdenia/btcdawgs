@@ -221,31 +221,68 @@
                 </div>
                 <div class="faq-menu">
                     <div class="sections gaegu f24px">
-                        <div class="sections-item chosen" onclick="changeSection(1)">About BTC Dawgs<img src="./images/right-arrow.png"></div>
-                        <div class="sections-item" onclick="changeSection(2)">About BTC Chain<img src="./images/right-arrow.png"></div>
+                        <div class="sections-item active" data-category="btc-dawgs">About BTC Dawgs<img src="./images/right-arrow.png"></div>
+                        <div class="sections-item" data-category="btc-chain">About BTC Chain<img src="./images/right-arrow.png"></div>
                     </div>
-                    <div class="questions">
+                    <div class="questions" data-category="btc-dawgs">
                         <div class="questions-item gaegu f24px bold700">
-                            <div class="questions-item-title" onclick="expandAns(1)">Who are the BTC Dawgs?  <img id="arrow1" src="./images/down-arrow.png" alt=""></div>
-                            <div id="border1" class="border-bottom"></div>
-                            <div id="answers1" class="questions-answer gaegu f20px opacity70">BTC dawgs is an exclusive collection of cute fat dawgs that will live forever on native Bitcoin. Our team is in the pizza lab, crafting hybrid runes/ordinals tech. Details are top secret, but trust us, we’re COOKING something epic! We’re all about community, education, and whipping up tools that make Bitcoin more fun and relevant than ever.</div>
+                            <div class="questions-item-title">Who are the BTC Dawgs?  <img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                            <div class="border-bottom"></div>
+                            <div class="questions-answer gaegu f20px opacity70">BTC dawgs is an exclusive collection of cute fat dawgs that will live forever on native Bitcoin. Our team is in the pizza lab, crafting hybrid runes/ordinals tech. Details are top secret, but trust us, we’re COOKING something epic! We’re all about community, education, and whipping up tools that make Bitcoin more fun and relevant than ever.</div>
                            
                         </div>
                         <div class="questions-item gaegu f24px bold700">
-                            <div class="questions-item-title" onclick="expandAns(2)">What is dawgtopia?  <img id="arrow2" src="./images/down-arrow.png" alt=""></div>
-                            <div id="border2" class="border-bottom"></div>
-                            <div id="answers2" class="questions-answer gaegu f20px opacity70">BTC dawgs is an exclusive collection of cute fat dawgs that will live forever on native Bitcoin. Our team is in the pizza lab, crafting hybrid runes/ordinals tech. Details are top secret, but trust us, we’re COOKING something epic! We’re all about community, education, and whipping up tools that make Bitcoin more fun and relevant than ever.</div>
+                            <div class="questions-item-title">What is dawgtopia?  <img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                            <div class="border-bottom"></div>
+                            <div class="questions-answer gaegu f20px opacity70">BTC dawgs is an exclusive collection of cute fat dawgs that will live forever on native Bitcoin. Our team is in the pizza lab, crafting hybrid runes/ordinals tech. Details are top secret, but trust us, we’re COOKING something epic! We’re all about community, education, and whipping up tools that make Bitcoin more fun and relevant than ever.</div>
                         </div>
                         <div class="questions-item gaegu f24px bold700">
-                            <div class="questions-item-title" onclick="expandAns(3)">What are dawgtools?  <img id="arrow3" src="./images/down-arrow.png" alt=""></div>
-                            <div id="border3" class="border-bottom"></div>
-                            <div id="answers3" class="questions-answer gaegu f20px opacity70">DAWGTOOLS are BTC ecosystem tools made by us for you and other BTC founders, creating a better future for BTC chain as a whole or do some experimental and fun together.</div>
-                           
+                            <div class="questions-item-title">What are dawgtools?  <img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                            <div class="border-bottom"></div>
+                            <div class="questions-answer gaegu f20px opacity70">DAWGTOOLS are BTC ecosystem tools made by us for you and other BTC founders, creating a better future for BTC chain as a whole or do some experimental and fun together.</div>
                         </div>
                         
+                     </div>
+                    <div class="questions" data-category="btc-chain" style="display: none;">
+                    <div class="questions-item gaegu f24px bold700">
+                        <div class="questions-item-title">What are Ordinals?<img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                        <div class="border-bottom"></div>
+                        <div class="questions-answer gaegu f20px opacity70">Ordinals are bitcoin native NFTs. Unlike other NFTs that only contains referral to the source art, Ordinal mints images, videos or GIFs directly to a satoshi on the blockchain, and is immutable because of that. They become a permanent part of the Bitcoin blockchain.</div>
+                       
+                    </div>
+                    <div class="questions-item gaegu f24px bold700">
+                        <div class="questions-item-title">How are ordinals inscribed?<img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                        <div class="border-bottom"></div>
+                        <div class="questions-answer gaegu f20px opacity70">The process of creating an Ordinal involves broadcasting commit and reveal transactions to the Bitcoin network's mempool. This can take some time, but don’t worry, once the your commitment to mint has been broadcasted, the mint will be reserved just for you.</div>
+                    </div>
+                    <div class="questions-item gaegu f24px bold700">
+                        <div class="questions-item-title">What is a BRC-20 token?<img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                        <div class="border-bottom"></div>
+                        <div class="questions-answer gaegu f20px opacity70">BRC-20 tokens are similar to ERC-20 tokens on Ethereum; They uses a JSON data file to define properties of a collection of fungible tokens on Ordinal Protocol. It’s able to capitalize on Bitcoin Blockchain’s decentralized security, however there isn’t smart contract functionalities for BRC-20s unlike ERC-20.
+                        </div>
+                    </div>
+                    <div class="questions-item gaegu f24px bold700">
+                        <div class="questions-item-title">What’s a Satoshi?<img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                        <div class="border-bottom"></div>
+                        <div class="questions-answer gaegu f20px opacity70">Satoshis, or sats, are the tiniest morsels of Bitcoin, with 100 million sats making up one whole Bitcoin. Some sats hold a special place in history, mined in the early days or tied to significant transactions. As there are only a limited amount of satoshis on specific transactions that hold significance in history, there are rankings of rarity of these sats, often referred to as rare sats!
+                        </div>
+                    </div>
+                    <div class="questions-item gaegu f24px bold700">
+                        <div class="questions-item-title">What are runes, how is it different from BRC-20?<img class="arrow" src="./images/down-arrow.png" alt=""></div>
+                        <div class="border-bottom"></div>
+                        <div class="questions-answer gaegu f20px opacity70">Runes is a newer protocol on Bitcoin blockchain aiming for greater efficiency compared to BRC-20s by eliminating reliance on meta-protocol and reduce congestion during transaction by utilizing utilize UTXO model. Both BRC-20 and Rune protocols are highly experimental and new innovations for both being created by many talented individuals and groups within the space!
+                        </div>
+                    </div>
+                    </div>
                 </div>
+                <div class="faq-more">
+                    <div class="gaegu bold700 f32px white">Have more questions?</div>
+                    <div class="gaegu f24px" style="color: #C7C7C7;">Visit our <a target="_blank" href="https://discord.com/channels/1234190389162938511/1262258441410314250" style="font-weight: bold; text-decoration: underline; color:#FF4D00;">Discord FAQ</a> to learn more about BTC tech and how it all works.</div>
                 </div>
-                <div class="faq-more"></div>
+                <div class="back-to-top gaegu bold700 f24px">
+                    <img src="./images/backtotop.svg">
+                    Back to top
+                </div>
             </div>
             
         </div>

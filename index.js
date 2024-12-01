@@ -114,45 +114,88 @@ function endDrag() {
 function getPositionX(e) {
   return e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
 }
-function expandAns(num){
-  if(document.getElementById('border'+num).style.visibility != "hidden"){
-    document.getElementById('answers'+num).style.display = "initial";
-    document.getElementById('answers'+num).style.animation = "opacityTr .5s linear forwards";
-    document.getElementById('arrow'+num).style.transform= "rotate(180deg)";
-    document.getElementById('border'+num).style.visibility= "hidden";
-    console.log(document.getElementById('answers'+num).style.visibility)
-  }
-  else if(document.getElementById('border'+num).style.visibility == "hidden"){
-    document.getElementById('answers'+num).style.display= "none";
-    document.getElementById('arrow'+num).style.transform= "rotate(0deg)";
-    document.getElementById('answers'+num).style.animation = "none";
-    console.log(document.getElementById('answers'+num).style.visibility)
-    document.getElementById('border'+num).style.visibility= "visible";
-  }
-}
-var section1 = {
-  q1: "Who are the BTC Dawgs?",
-  a1: "BTC dawgs is an exclusive collection of cute fat dawgs that will live forever on native Bitcoin. Our team is in the pizza lab, crafting hybrid runes/ordinals tech. Details are top secret, but trust us, we’re COOKING something epic! We’re all about community, education, and whipping up tools that make Bitcoin more fun and relevant than ever.",
-  q2: "What is dawgtopia?",
-  a2: "BTC dawgs is an exclusive collection of cute fat dawgs that will live forever on native Bitcoin. Our team is in the pizza lab, crafting hybrid runes/ordinals tech. Details are top secret, but trust us, we’re COOKING something epic! We’re all about community, education, and whipping up tools that make Bitcoin more fun and relevant than ever.",
-  q3: "What are dawgtools?",
-  a4: "DAWGTOOLS are BTC ecosystem tools made by us for you and other BTC founders, creating a better future for BTC chain as a whole or do some experimental and fun together."
-}
 
-var section2 = {
-  q1: "What are Ordinals?",
-  a1: "Ordinals are bitcoin native NFTs. Unlike other NFTs that only contains referral to the source art, Ordinal mints images, videos or GIFs directly to a satoshi on the blockchain, and is immutable because of that. They become a permanent part of the Bitcoin blockchain. ",
-  q2: "How are ordinals inscribed?",
-  a2: "The process of creating an Ordinal involves broadcasting commit and reveal transactions to the Bitcoin network's mempool. This can take some time, but don’t worry, once the your commitment to mint has been broadcasted, the mint will be reserved just for you.",
-  q3: "What is a BRC-20 token?",
-  a3: "BRC-20 tokens are similar to ERC-20 tokens on Ethereum; They uses a JSON data file to define properties of a collection of fungible tokens on Ordinal Protocol. It’s able to capitalize on Bitcoin Blockchain’s decentralized security, however there isn’t smart contract functionalities for BRC-20s unlike ERC-20.",
-  q4: "What’s a Satoshi?",
-  a4: "Satoshis, or sats, are the tiniest morsels of Bitcoin, with 100 million sats making up one whole Bitcoin. Some sats hold a special place in history, mined in the early days or tied to significant transactions.  As there are only a limited amount of satoshis on specific transactions that hold significance in history, there are rankings of rarity of these sats, often referred to as rare sats!",
-  q5: "What are runes, how is it different from BRC-20?",
-  a5: "Runes is a newer protocol on Bitcoin blockchain aiming for greater efficiency compared to BRC-20s by eliminating reliance on meta-protocol and reduce congestion during transaction by utilizing utilize UTXO model. Both BRC-20 and Rune protocols are highly experimental and new innovations for both being created by many talented individuals and groups within the space!"
-}
-function changeSection(num){
-  if(num == 1){
-    
-  }
-}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sectionItems = document.querySelectorAll('.sections-item');
+  const questionContainers = document.querySelectorAll('.questions');
+  const questionItems = document.querySelectorAll('.questions-item');
+
+  // Switch between categories
+  sectionItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+          // Map button text to data-category values
+          const categories = ['btc-dawgs', 'btc-chain'];
+          const selectedCategory = categories[index]; // Map based on index order
+
+          // Add 'active' class to the clicked section and remove from others
+          sectionItems.forEach(section => section.classList.remove('active'));
+          item.classList.add('active');
+
+          // Show the selected category and hide others
+          questionContainers.forEach(container => {
+              if (container.getAttribute('data-category') === selectedCategory) {
+                  container.style.display = 'block'; // Show the matching category
+              } else {
+                  container.style.display = 'none'; // Hide non-matching categories
+              }
+          });
+
+          // Reset all active answers when switching categories
+          questionItems.forEach(item => {
+              item.classList.remove('active');
+              const answer = item.querySelector('.questions-answer');
+              if (answer) answer.style.maxHeight = null; // Collapse all answers
+              const arrow = item.querySelector('.arrow');
+              if (arrow) arrow.style.transform = 'rotate(0deg)';
+          });
+      });
+  });
+
+  // Toggle answers within a category
+  questionItems.forEach(item => {
+      const title = item.querySelector('.questions-item-title');
+
+      title.addEventListener('click', () => {
+          // Close all other answers in the same category
+          const currentContainer = item.closest('.questions');
+          const itemsInCategory = currentContainer.querySelectorAll('.questions-item');
+
+          itemsInCategory.forEach(otherItem => {
+              if (otherItem !== item) {
+                  otherItem.classList.remove('active');
+                  const otherAnswer = otherItem.querySelector('.questions-answer');
+                  if (otherAnswer) otherAnswer.style.maxHeight = null; // Collapse the answer
+                  const otherArrow = otherItem.querySelector('.arrow');
+                  if (otherArrow) otherArrow.style.transform = 'rotate(0deg)';
+              }
+          });
+
+          // Toggle the clicked item's answer
+          const answer = item.querySelector('.questions-answer');
+          const arrow = item.querySelector('.arrow');
+          const isActive = item.classList.contains('active');
+
+          if (isActive) {
+              item.classList.remove('active');
+              answer.style.maxHeight = null; // Collapse the answer
+              if (arrow) arrow.style.transform = 'rotate(0deg)';
+          } else {
+              item.classList.add('active');
+              answer.style.maxHeight = answer.scrollHeight + 'px'; // Expand the answer
+              if (arrow) arrow.style.transform = 'rotate(180deg)';
+          }
+      });
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopButton = document.querySelector('.back-to-top');
+  // Smooth scroll to the top when clicked
+  backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
+});
+
